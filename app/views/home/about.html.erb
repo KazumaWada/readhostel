@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>easy85</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Noto Sans JP', sans-serif;
+        }
+    </style>
+</head>
+<body class="">
+
+    <!-- Navigation -->
+    <nav class="top-0 left-0 right-0 bg-white z-50 h-16">
+
+    <div class="container mx-auto px-4 h-full flex justify-between items-center">
+
+    <div class="flex items-center h-full">
+      <a href="/" class="flex items-center">
+        easy85</p>
+      </a>
+    </div>
+  
+
+      <div class="space-x-4">
+      <!--<%= link_to blog_path, data: { turbo: false }, class: "font-bold text-blue-600 px-4 py-2 rounded-lg hover:text-blue-700 transition" do %>
+        ブログ
+      <% end %>-->
+        <%= link_to login_path, data: { turbo: false }, class: "bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-600 transition" do %>
+          はじめる
+        <% end %>
+      </div>
+    </div>
+  </nav>
+
+  <!-- hero section -->
+  <!-- 下線: after:block after:h-0.5 after:bg-gray-300 after:opacity-50 after:mt-1 after:w-full -->
+  <header class="w-full h-screen flex items-start justify-center pt-20 leading-relaxed">
+  <div class="container mx-auto px-4 flex flex-col md:flex-row items-center gap-10">
+
+    <!-- 左側：テキスト -->
+    <div class="text-center md:text-left max-w-xl">
+
+      <h1 class="text-4xl sm:text-5xl font-extrabold text-gray-900">
+        覚えたい単語、フレーズを<span class="text-blue-600">しっかり管理</span>
+      </h1>
+      <div class="tags mt-10">
+      <span class="inline-flex font-bold items-center rounded-md bg-blue-50 px-2 py-1 text-base text-blue-700 ring-1 ring-blue-700/10 ring-inset">
+      😄 無料で使える
+      </span>
+      <span class="inline-flex items-center rounded-md bg-blue-50 px-2 py-1 text-base font-bold text-blue-700 ring-1 ring-blue-700/10 ring-inset">
+      🔖タグ管理機能
+      </span>
+      <span class="inline-flex items-center rounded-md bg-blue-50 px-2 py-1 text-base font-bold text-blue-700 ring-1 ring-blue-700/10 ring-inset">
+      🧠クイズ付き
+      </span>
+      <span class="inline-flex items-center rounded-md bg-blue-50 px-2 py-1 text-base font-bold text-blue-700 ring-1 ring-blue-700/10 ring-inset">
+      💆🏻‍♂️見やすいデザイン
+      </span>
+      
+      <h1 class="sm:text-xl font-extrabold text-gray-900 pt-5">
+        <%= link_to '使用例', 'https://eigopencil.com/kazuma', class: 'text-blue-600 border-b-2 border-blue-600', rel: 'noopener' %>を見る
+      </h1>
+      <h1 class="sm:text-xl font-extrabold text-gray-900 pt-5">
+        <%= link_to 'easy85', 'https://eigopencil.com/blog', class: 'text-blue-600 border-b-2 border-blue-600', rel: 'noopener' %>とは？
+      </h1>
+
+
+
+      </div>
+    </div>
+
+    <!-- 右側：モックアップ画像 -->
+    <div class="flex flex-col md:flex-row items-center gap-6 sm:p-10">
+      <div class="border-4 border-gray-100 relative w-[400px] md:w-[500px] rounded-2xl overflow-hidden transition duration-300 transform hover:scale-105 hover:shadow-2xl">
+        <%= image_tag "lp-main.png", class: "w-full object-cover rounded-2xl" %>
+        <div class="absolute inset-0 bg-gradient-to-r from-transparent to-white opacity-30 pointer-events-none"></div>
+      </div>
+    </div>
+    
+
+  </div>
+</header>
+
+
+
+
+
+
+<section id="title" class="w-full h-screen flex flex-col items-center justify-center text-center pt-10">
+  <div class="p-4">
+    <h1 class="text-3xl sm:text-5xl text-left sm:text-center font-extrabold text-gray-900 mb-4">
+      easy85は、シンプルな<span class="text-blue-600">単語帳サイト</span>
+    </h1>
+
+    <div class="flex flex-col items-start mt-10 space-y-6 text-left">
+      <div class="flex items-start">
+        <span class="text-blue-600 text-2xl font-extrabold mr-4">1.</span>
+        <p class="text-gray-600 text-lg font-bold">覚えたい単語やフレーズ、日本語訳、例文をまとめて管理！</p>
+      </div>
+
+      <div class="flex items-start">
+        <span class="text-blue-600 text-2xl font-extrabold mr-4">2.</span>
+        <p class="text-gray-600 text-lg font-bold">タグをつけて管理をしやすく</p>
+      </div>
+
+      <div class="flex items-start">
+        <span class="text-blue-600 text-2xl font-extrabold mr-4">3.</span>
+        <p class="text-gray-600 text-lg font-bold">フラッシュカードでしっかり定着</p>
+      </div>
+    </div>
+
+    <%= image_tag "about05.png", class: "h-[60vh] object-contain mx-auto" %>
+  </div>
+</section>
+
+
+
+
+
+<!--<section class="w-full h-screen flex flex-col items-center justify-center text-center pt-10">-->
+<section id="design" class="w-full min-h-screen flex flex-col items-center justify-center text-center pt-10">
+  <!-- タイトル -->
+  <h1 class="text-3xl sm:text-5xl text-left sm:text-center font-extrabold text-gray-900 mb-4">
+    かんたん＆見やすい<span class="text-blue-600">デザイン💆🏻‍♂️</span>
+  </h1>
+
+  <!-- 説明文 -->
+  <div class="mt-10">
+    <p class="text-gray-600 text-lg font-bold text-left">
+      メインカラーは、記憶にいいと言われている青、無難で落ち着く白を採用しました。<br>
+    </p>
+  </div>
+
+  <!-- 画像たち -->
+  <!--<div id="image-container" class="relative w-full h-[60vh] mt-8">-->
+  <div id="image-container" class="mt-8">
+    <%= image_tag "root_img.png", id:"img-home", class: "object-cover mx-auto sm:h-[60vh] h-auto w-full max-w-md" %>
+    <!--<%= image_tag "root_img.png", id:"img-home", class: "h-[60vh] object-cover mx-auto" %>-->
+    <%= image_tag "tango.png", id:"img-tango", class: "h-[60vh] object-cover mx-auto hidden" %>
+    <%= image_tag "edit.png", id:"img-edit", class: "h-[60vh] object-cover mx-auto hidden" %>
+    <%= image_tag "quiz.png", id:"img-quiz", class: "h-[60vh] object-cover mx-auto hidden" %>
+  </div>
+
+  <!-- バッジボタンたち -->
+  <div class="flex space-x-2 sm:space-x-6 mt-8">
+    <button onclick="showImage('home')" class="inline-flex items-center rounded-md bg-gray-50 px-2 py-1 text-base sm:text-lg sm:px-4 font-medium text-gray-600 ring-1 ring-gray-500/10 ring-inset hover:bg-gray-200">
+    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
+    <path stroke-linecap="round" stroke-linejoin="round" d="m2.25 12 8.954-8.955c.44-.439 1.152-.439 1.591 0L21.75 12M4.5 9.75v10.125c0 .621.504 1.125 1.125 1.125H9.75v-4.875c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125V21h4.125c.621 0 1.125-.504 1.125-1.125V9.75M8.25 21h8.25" />
+    </svg>
+      ホーム
+    </button>
+    <button onclick="showImage('tango')" class="inline-flex items-center rounded-md bg-gray-50 px-2 py-1 text-base sm:text-lg sm:px-4 font-medium text-gray-600 ring-1 ring-gray-500/10 ring-inset hover:bg-gray-200">
+    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
+    <path stroke-linecap="round" stroke-linejoin="round" d="m16.862 4.487 1.687-1.688a1.875 1.875 0 1 1 2.652 2.652L6.832 19.82a4.5 4.5 0 0 1-1.897 1.13l-2.685.8.8-2.685a4.5 4.5 0 0 1 1.13-1.897L16.863 4.487Zm0 0L19.5 7.125" />
+    </svg>
+      単語登録
+    </button>
+    <button onclick="showImage('edit')" class="inline-flex items-center rounded-md bg-gray-50 px-2 py-1 text-base sm:text-lg sm:px-4 font-medium text-gray-600 ring-1 ring-gray-500/10 ring-inset hover:bg-gray-200">
+    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
+    <path stroke-linecap="round" stroke-linejoin="round" d="m16.862 4.487 1.687-1.688a1.875 1.875 0 1 1 2.652 2.652L10.582 16.07a4.5 4.5 0 0 1-1.897 1.13L6 18l.8-2.685a4.5 4.5 0 0 1 1.13-1.897l8.932-8.931Zm0 0L19.5 7.125M18 14v4.75A2.25 2.25 0 0 1 15.75 21H5.25A2.25 2.25 0 0 1 3 18.75V8.25A2.25 2.25 0 0 1 5.25 6H10" />
+    </svg>
+      編集
+    </button>
+    <button onclick="showImage('quiz')" class="inline-flex items-center rounded-md bg-gray-50 px-2 py-1 text-base sm:text-lg sm:px-4 font-medium text-gray-600 ring-1 ring-gray-500/10 ring-inset hover:bg-gray-200">
+    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
+    <path stroke-linecap="round" stroke-linejoin="round" d="M4.26 10.147a60.438 60.438 0 0 0-.491 6.347A48.62 48.62 0 0 1 12 20.904a48.62 48.62 0 0 1 8.232-4.41 60.46 60.46 0 0 0-.491-6.347m-15.482 0a50.636 50.636 0 0 0-2.658-.813A59.906 59.906 0 0 1 12 3.493a59.903 59.903 0 0 1 10.399 5.84c-.896.248-1.783.52-2.658.814m-15.482 0A50.717 50.717 0 0 1 12 13.489a50.702 50.702 0 0 1 7.74-3.342M6.75 15a.75.75 0 1 0 0-1.5.75.75 0 0 0 0 1.5Zm0 0v-3.675A55.378 55.378 0 0 1 12 8.443m-7.007 11.55A5.981 5.981 0 0 0 6.75 15.75v-1.5" />
+    </svg>
+      クイズ
+    </button>
+  </div>
+</section>
+
+
+
+<section id="design" class="w-full min-h-screen bg-blue-500 flex flex-col items-center justify-center text-center pt-10">
+<!--<div class="w-full h-screen  flex flex-col items-center justify-center text-center pt-10">-->
+  <div class="container mx-auto px-4">
+    <h2 class="text-4xl font-extrabold text-center text-white text-gray-800 mb-12">よくある質問 💬</h2>
+    
+    <div class="max-w-3xl mx-auto space-y-8">  
+       
+      <div class="bg-white shadow-md rounded-lg p-6">
+        <h3 class="text-xl font-semibold text-gray-800 mb-2">easy85は無料で使えますか？</h3>
+        <p class="text-gray-600">はい、基本機能は無料でご利用いただけます。ユーザーからの支援によってサーバーコストがまかなわれ、運営する事ができています。</p>
+       </div>
+
+      <div class="bg-white shadow-md rounded-lg p-6">
+        <h3 class="text-xl font-semibold text-gray-800 mb-2">どんな単語やフレーズでも保存できますか？</h3>
+        <p class="text-gray-600">もちろんです！映画、ドラマ、読書中に出会った英語など、自由に保存・管理できます。</p>
+      </div>
+
+      <div class="bg-white shadow-md rounded-lg p-6">
+        <h3 class="text-xl font-semibold text-gray-800 mb-2">スマホでも使えますか？</h3>
+        <p class="text-gray-600">はい、easy85はスマートフォンにも最適化されているため、快適にお使いいただけます。</p>
+      </div>
+
+      <div class="bg-white shadow-md rounded-lg p-6">
+        <h3 class="text-xl font-semibold text-gray-800 mb-2">フラッシュカード機能とは何ですか？</h3>
+        <p class="text-gray-600">保存した単語やフレーズをクイズ形式で復習できる機能です。記憶の定着をサポートします。</p>
+      </div>
+
+    </div>
+
+  </div>
+</section>
+
+
+
+
+
+
+
+    <!-- CTA Section -->
+    <section class="py-16 text-center">
+        <div class="container mx-auto px-4">
+            <h2 class="text-2xl font-bold mb-6">単語、フレーズ管理をもっとかんたんに</h2><br>
+            <!--<p class="text-xl mb-8">easy85でストレスフリーな英語学習を</p>-->
+            <%= link_to login_path, data: { turbo: false }, class: "bg-blue-500 text-white text-xl px-10 py-4 rounded-lg hover:bg-blue-600 transition" do %>
+                はじめる
+            <% end %>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="py-4 border-solid border-t-2">
+        <div class="container mx-auto px-4 text-center">
+            <p>&copy; <%= Date.current.year %> easy85. All rights reserved.</p>
+        </div>
+    </footer>
+</body>
+
+</html>
+
+
+<script>
+function showImage(type) {
+  // まず全画像を非表示にする
+  document.querySelectorAll('#image-container img').forEach(img => {
+    img.classList.add('hidden');
+  });
+
+  // 指定された画像だけ表示する
+  const target = document.getElementById(`img-${type}`);
+  if (target) {
+    target.classList.remove('hidden');
+  }
+}
+</script>

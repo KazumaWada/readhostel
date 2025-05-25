@@ -1,0 +1,114 @@
+<!-- app/views/microposts/_form.html.erb -->
+<div id="post" class="mt-5 m-2">
+  
+  <!-- ツールバー -->
+  <div class="toolbar mb-2 flex justify-between items-center">
+    <div class="flex space-x-2">
+      <button type="button" class="px-4 py-2 rounded-md" id="bold-button">
+        <strong>B</strong>
+      </button>
+      <!-- 他のフォーマットボタンを追加する場合はここに -->
+    </div>
+    <div class="text-sm text-gray-600" id="char-count">0 / 1000</div>
+  </div>
+  
+  <!-- フォーム -->
+  <%= form_with(model: @micropost, url: draft_update_path(@micropost), method: :post, local: true, html: { class: "micropost-form" }) do |f| %>
+    <!-- 編集エリア -->
+    <div class="field">
+      <div
+        id="editor"
+        contenteditable="true"
+        class="p-4 rounded border shadow-md hover:shadow-lg transition-shadow duration-300 w-full h-[400px]"
+        data-placeholder="I have pen, I have an apple Uh! Apple-pen"
+        style="min-height: 100px; overflow-y: auto;"
+      >
+        I have pen, I have an apple Uh! Apple-pen
+      </div>
+      <!-- 隠しフィールド（フォーム送信時にエディタの内容を保存） -->
+      <%= f.hidden_field :content, id: "hidden_content" %>
+    </div>
+  
+    <!-- 送信ボタン -->
+    <div class="actions text-right mt-2">
+      <%= f.submit "下書き保存", name: "draft", class: "btn btn-light diary-submit-btn" %>
+      <%= link_to "🤖", user_path(@user), class: "btn btn-light submit-button" %>
+      <%= f.submit "Post", class: "btn btn-light diary-submit-btn" %>
+    </div>
+  <% end %>
+  
+  <!-- プレースホルダー用のCSS -->
+  <style>
+    [data-placeholder]:empty::before {
+      content: attr(data-placeholder);
+      color: #aaa;
+      pointer-events: none;
+    }
+    #editor:focus {
+      outline: none;
+    }
+  </style>
+  
+</div><!--post-->
+
+<!-- JavaScriptの追加 -->
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    const boldButton = document.getElementById('bold-button');
+    const editor = document.getElementById('editor');
+    const hiddenContent = document.getElementById('hidden_content');
+    const form = editor.closest('form');
+    const charCount = document.getElementById('char-count');
+    const MAX_CHARS = 1000;
+    
+    // 編集エリアの内容を隠しフィールドに同期
+    function syncContent() {
+      hiddenContent.value = editor.innerHTML;
+    }
+    
+    // 文字数をカウントして表示
+    function updateCharCount() {
+      // 一時的にHTMLをパースしてテキストのみ取得
+      let tempDiv = document.createElement('div');
+      tempDiv.innerHTML = editor.innerHTML;
+      let text = tempDiv.innerText || "";
+      let currentCount = text.length;
+      
+      if (currentCount > MAX_CHARS) {
+        charCount.textContent = `${MAX_CHARS} / ${MAX_CHARS}`;
+        charCount.classList.add('text-red-500');
+        // 超過分の文字を削除（オプション）
+        editor.innerText = text.substring(0, MAX_CHARS);
+        currentCount = MAX_CHARS;
+      } else {
+        charCount.textContent = `${currentCount} / ${MAX_CHARS}`;
+        charCount.classList.remove('text-red-500');
+      }
+    }
+    
+    // ボタンのクリックイベント
+    boldButton.addEventListener('click', function(event) {
+      event.preventDefault();
+      document.execCommand('bold', false, null);
+      syncContent();
+      updateCharCount();
+    });
+    
+    // フォーム送信時に内容を同期
+    form.addEventListener('submit', function() {
+      syncContent();
+    });
+    
+    // 編集エリアの入力イベント時にも同期（リアルタイム）
+    editor.addEventListener('input', function() {
+      syncContent();
+      updateCharCount();
+    });
+    
+    // 初期文字数カウントの更新
+    updateCharCount();
+  });
+</script>
+
+
+

@@ -1,0 +1,49 @@
+<!--ここでは、@userを意識する必要はない。rendered by users/show -->
+
+
+<!-- irb(main):001> app.microposts_path(slug: "a")=> "/a/microposts" -->
+
+<%= form_with(model: @micropost, url: "/#{@user.slug}/microposts", method: :post, local: true, html: { class: "micropost-form" }) do |f| %>
+  <!-- 入力フィールド -->
+  <div class="field">
+  <button type="button" onclick="makeBold()" class="btn btn-light">B</button>
+
+  <%= f.text_area :content, 
+  placeholder: "i dont think anything is hard. it just takes time.", 
+  class: "mt-2 p-4 rounded border shadow-md hover:shadow-lg transition-shadow duration-300 flex items-center w-full h-40",
+  style: ";" %>
+
+
+     <div class="actions text-right mt-2">
+      <button
+        class="px-4 py-2 bg-gray-200 text-gray-500 border border-gray-300 
+               rounded-md cursor-not-allowed
+               disabled:hover:bg-gray-200 disabled:opacity-50"
+        disabled>
+        🤖AI
+      </button>
+    <% unless current_page?(camera_path) %>
+      <button class="hover:bg-yellow-500 px-4 py-2 bg-gray-100 border border-gray-300 text-gray-700 
+                     hover:bg-gray-200 focus:outline-none focus:ring-2 focus:ring-offset-2 
+                     focus:ring-gray-300 rounded-md">
+        <%= link_to "📸 手書きを読み取る", camera_path(@user), class: "submit-button text-dark text-decoration-none" %>
+      </button>
+    <% end %>
+
+
+      <%= f.submit "📝 下書き保存", name: "draft", class: "hover:bg-yellow-500 px-4 py-2 bg-gray-200 border border-gray-300 text-gray-800 
+                 hover:bg-gray-300 focus:outline-none focus:ring-2 focus:ring-offset-2 
+                 focus:ring-gray-400 rounded-md" %>
+
+      <%= f.submit "post", class: "hover:bg-yellow-500 px-4 py-2 bg-gray-200 border border-gray-300 text-gray-800 
+                 hover:bg-gray-300 focus:outline-none focus:ring-2 focus:ring-offset-2 
+                 focus:ring-gray-400 rounded-md" %>
+    </div>
+
+  </div>
+
+  <!-- 送信ボタン -->
+  
+<% end %>
+
+

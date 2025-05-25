@@ -1,0 +1,25 @@
+<div class="mt-3 text-center">
+<h4>📸 手書き英文の認識 📸</h4>
+</div>
+<div class="text-center mt-4">
+
+<!--<%= image_tag("camera.webp", class: "img-fluid mt-3", style: "max-width: 280px; height: auto; border-radius: 8px;") %>-->
+<p class="mt-3">(精度が十分ではありません。改善に努めます🙇‍♂️)</p>
+</div>
+
+<div class="mt-5">
+
+<%= form_with(url: analyze_handwriting_path, method: :post, local: true, html: { multipart: true }) do |f| %>
+    <%= f.file_field :image %><br>
+    <%= f.submit "分析する" %>
+<% end %>
+</div>
+
+
+  <p><%= @ocr_result %></p>
+
+<%= render 'shared/micropost_form' %>
+
+
+
+

@@ -1,0 +1,33 @@
+<div class="mt-3 text-center">
+<h4>📝 scraps 📝</h4>
+<p>気になる単語やフレーズ、英文があったらとりあえずここにコピペしておこう。</p>
+</div>
+
+<% @microposts.draft.each do |micropost| %>
+  
+    <!-- 表示部分 -->
+    <div class="diary-container">
+      <div class="diary-entries">
+        <ul id="entriesList" class="list-group">
+          <li class="list-group-item">
+            <!-- コンテンツ部分 -->
+            <p><%= micropost.content %> <span class="text-muted"><%= micropost.created_at.strftime("%Y-%m-%d") %></span></p>
+            <!-- 削除ボタン -->
+            <%= button_to "🗑️", micropost_path(slug: @user.slug, id: micropost.id), method: :delete, class: "btn btn-sm" %>
+        </ul>
+      </div>
+    </div>
+  <% end %>
+
+  <div class="text-center mt-5 ml-2 mr-2">
+  <!--<%= image_tag("draft.webp", style: "width: 200px; height: 200px; border-radius: 2%;") %>-->
+  </div>
+  <div class="text-center mt-5 ml-2 mr-2">
+<!--<%= image_tag("draft.webp", style: "width: 200px; height: 200px; border-radius: 2%;") %>-->
+  <p>"Every draft is a step closer to expressing your thoughts perfectly. Don’t wait for perfection. start publishing your drafts."</p>
+  <footer class="blockquote-footer"><cite title="Source Title">Anonymous</cite></footer>
+
+</div>
+  
+  
+  

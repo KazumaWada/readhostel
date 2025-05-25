@@ -1,0 +1,20 @@
+<div class="text-center mt-3" id="nav-section">
+
+<% if current_user.nil? %>
+  <p>hey, ゲストさん! 
+    <%= link_to "ログイン", login_path, class: "text-decoration-none text-blue-500" %>
+  </p>
+<% else %>
+  <div class="flex items-center justify-between w-full">
+    <span></span> <!-- Left side empty space -->
+    <span class="text-center flex-grow">
+      hey, <%= current_user.name %>👋
+    </span>
+  </div>
+<% end %>
+
+</div>
+
+<div class="mt-5">
+<%= render template: "microposts/index" %>
+</div>

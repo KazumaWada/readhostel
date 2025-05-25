@@ -1,0 +1,32 @@
+<div class="flex h-screen overflow-hidden">
+
+  <!-- 左カラム（固定・sm以上で表示） -->
+  <div class="hidden sm:block sm:w-[150px] fixed h-full">
+    <%= render 'users/profile' %>
+  </div>
+
+  <!-- 右カラム（スマホでは余白なし） -->
+  <div class="w-full sm:ml-[150px] overflow-y-auto">
+
+    <% if @user.microposts.any? %>
+      <% if current_user == @user %>
+        <%= render partial: 'microposts/content_navs' %>
+      <% end %>
+      <%= render partial: 'microposts/micropost' %>
+    <% end %>
+  </div>
+</div>
+
+
+
+
+<script>
+
+
+//tagsの値"dog, cat, hello, hhhhsss"
+//,を2つまで検出し、あとは文字列の最後から取得。(ここは曖昧でいい。)
+
+</script>
+
+
+

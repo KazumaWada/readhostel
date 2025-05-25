@@ -1,0 +1,42 @@
+<%= render 'users/profile' %>
+<%= link_to '←', :back, class:"font-bold text-2xl" %>
+<!--<h1 class="mt-5 text-center text-xl font-medium">draft</h1>-->
+
+<p>気になる単語やフレーズ、英文があったらとりあえずここにコピペしておこう。</p>
+
+<% @microposts.draft.each do |micropost| %>   
+
+  <div class="mt-5 p-4 ml-3 mr-3 rounded border shadow-md hover:shadow-lg transition-shadow duration-300">
+    <!-- Username and date on the first line -->
+  
+ 
+    
+    <!-- Content on the second line -->
+    <div class="text-left mt-2">
+      <%= simple_format(micropost.content) %>
+    </div>
+    <div class="flex justify-end items-center space-x-2">
+  <%= link_to "edit",
+              draft_edit_path(slug: @user.slug, id: micropost.id),
+              class: "btn btn-mute" %> 
+  <%= button_to "🗑️",
+                micropost_path(slug: @user.slug, id: micropost.id),
+                method: :delete,
+                class: "btn btn-sm" %>
+</div>
+
+  
+  </div>
+  <% end %>
+
+
+
+</div>
+</div>
+</div>
+  
+  
+
+
+  
+  

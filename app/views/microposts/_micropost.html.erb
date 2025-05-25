@@ -1,0 +1,119 @@
+<% @microposts.each do |micropost| %>
+   <!-- 一番外側 -->
+   <!--<div class="p-3 m-2 border-2 border-gray-200 rounded-2xl duration-200">-->
+   <div class="p-3 m-0 rounded-none sm:m-2 sm:rounded-2xl border-2 border-gray-200 duration-200">
+  <!--<div class="p-3 border-4 border-gray-200 duration-200">-->
+  <!--<%= link_to post_path(id: micropost.id) do %> -->
+
+  <!-- コンテンツ部分 -->
+  <div class="flex m-2">
+    <!-- 日付 -->
+      <span class="text-gray-500 text-sm block pr-2">
+      <%= micropost.created_at.strftime("%Y-%m-%d") %>
+      </span>
+    <!-- 正解数 -->
+    <% if micropost.correct_num < 10 %>
+      <span class="inline-flex items-center rounded-md bg-blue-50 px-2 py-1 text-xs font-medium text-blue-700 ring-1 ring-blue-700/10 ring-inset"> 
+      <%= micropost.correct_num %>/10
+      </span>
+    <% else %>
+       ✅
+    <% end %> 
+    
+    <!-- タグ defaultで入力されなくてもなんらかしらの形で存在してしまっているから変な無地のボタンが残るんだと思う。defaulでnullとかにしてみる。-->
+    <% if micropost.tags.present? %>
+     <span class="rounded-md bg-gray-50 px-2 py-1 text-xs font-medium text-gray-600 ring-1 ring-gray-500/10 ring-inset">
+     <%= micropost.tags %>
+     </span>
+    <% end %>
+
+      <!--編集削除-->
+      <% if current_user == @user %>
+      <div class="ml-1 flex justify-end space-x-2">
+        <!-- 編集ボタン -->
+        <%= button_to edit_micropost_path(slug: @user.slug, id: micropost.id), method: :get, class: "text-blue-500 hover:text-blue-700 bg-transparent border-none text-sm" do %>
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
+        <path stroke-linecap="round" stroke-linejoin="round" d="m16.862 4.487 1.687-1.688a1.875 1.875 0 1 1 2.652 2.652L10.582 16.07a4.5 4.5 0 0 1-1.897 1.13L6 18l.8-2.685a4.5 4.5 0 0 1 1.13-1.897l8.932-8.931Zm0 0L19.5 7.125M18 14v4.75A2.25 2.25 0 0 1 15.75 21H5.25A2.25 2.25 0 0 1 3 18.75V8.25A2.25 2.25 0 0 1 5.25 6H10" />
+        </svg>
+        <% end %>
+
+        <!-- 削除ボタン -->
+        <%= button_to micropost_path(slug: @user.slug, id: micropost.id),
+         method: :delete,
+         class: "text-blue-500 hover:text-blue-700 bg-transparent border-none text-sm" do %>
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
+        <path stroke-linecap="round" stroke-linejoin="round" d="m14.74 9-.346 9m-4.788 0L9.26 9m9.968-3.21c.342.052.682.107 1.022.166m-1.022-.165L18.16 19.673a2.25 2.25 0 0 1-2.244 2.077H8.084a2.25 2.25 0 0 1-2.244-2.077L4.772 5.79m14.456 0a48.108 48.108 0 0 0-3.478-.397m-12 .562c.34-.059.68-.114 1.022-.165m0 0a48.11 48.11 0 0 1 3.478-.397m7.5 0v-.916c0-1.18-.91-2.164-2.09-2.201a51.964 51.964 0 0 0-3.32 0c-1.18.037-2.09 1.022-2.09 2.201v.916m7.5 0a48.667 48.667 0 0 0-7.5 0" />
+        </svg>
+        <% end %>
+      </div>
+    <% end %>
+  </div>
+
+  <!--content-->
+      <div class="m-2">
+        <%= sanitize micropost.content, 
+        tags: %w(p br h1 h2 h3 h4 h5 h6 ul ol li strong em u s blockquote pre code span div img a),
+        attributes: %w(class style src alt href data-*),
+        class: "text-xl text-gray-700 font-medium"
+        %>
+      </div>
+      
+      <div class="border-2 border-dashed"></div>
+
+  <!--answer-->
+  <div class="m-2 text-gray-400 min-h-[2rem]">
+  <%= micropost.answer.present? ? sanitize(micropost.answer, tags: %w(p br h1 h2 h3 h4 h5 h6 ul ol li strong em u s blockquote pre code span div img a), attributes: %w(class style src alt href data-*))
+                                : "&nbsp;".html_safe %>
+</div>
+
+
+      
+<!--original-->
+<div class="text-black font-normal bg-blue-100 text-blue-600 p-2 rounded-lg min-h-[2rem]">
+  <%= micropost.original.present? ? sanitize(micropost.original, 
+      tags: %w(p br h1 h2 h3 h4 h5 h6 ul ol li strong em u s blockquote pre code span div img a),
+      attributes: %w(class style src alt href data-*)
+    ) : "&nbsp;".html_safe %>
+</div>
+
+  
+
+    
+     <% 
+=begin
+%>
+
+      
+      <div class="text-black bg-gray-50 p-4 border-2 border-gray-700 rounded-md">
+      <%= sanitize micropost.answer, 
+          tags: %w(p br h1 h2 h3 h4 h5 h6 ul ol li strong em u s blockquote pre code span div img a),
+          attributes: %w(class style src alt href data-*) %>
+     </div>
+
+      <div class="text-black bg-gray-100 rounded-md p-3 font-medium">
+      <%= sanitize micropost.answer, 
+      tags: %w(p br h1 h2 h3 h4 h5 h6 ul ol li strong em u s blockquote pre code span div img a),
+      attributes: %w(class style src alt href data-*) %>
+      </div>
+
+      <div class="text-black bg-gray-100 p-3 rounded-md flex items-center">
+      <i class="fas fa-pencil-alt text-sm mr-2"></i> <!-- アイコン -->
+      <%= sanitize micropost.answer, 
+          tags: %w(p br h1 h2 h3 h4 h5 h6 ul ol li strong em u s blockquote pre code span div img a),
+          attributes: %w(class style src alt href data-*) %>
+    </div>
+      <% 
+=end
+%>
+      
+  <% end %>
+
+  </div><!--コンテンツ外側-->
+
+  <% end %><!--loop-->
+
+  <script>
+  //最初はtag=hidden(DOMに情報を渡すため)
+  //tagの内容を取ってきて、加工して、所定の場所にループなりしてspanを追加して.textContentとして表示。
+
+  </script>

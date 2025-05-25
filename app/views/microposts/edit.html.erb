@@ -1,0 +1,34 @@
+<%= button_to "←", root_path, method: :get %>
+
+
+<%= form_with(model: @micropost, url: update_micropost_path(id: @micropost.id), method: :patch, local: true, html: { class: "micropost-form" }) do |f| %>
+  <div class="m-4 p-3 border-2 border-gray-200 rounded-2xl duration-200">
+  
+    <div class="flex m-2">
+      <!-- tags -->
+      <span class="rounded-md bg-gray-50 px-2 py-1 text-xs font-medium text-gray-600 ring-1 ring-gray-500/10 ring-inset">
+        <%= f.text_area :tags, size: "20x2", class: "bg-gray-50" %>
+      </span>
+    </div>
+  
+    <div class="m-2">
+      <%= f.text_area :content, size: "100x5", class: "text-xl text-gray-700 font-medium" %>
+    </div>
+  
+    <div class="border-2 border-dashed"></div>
+  
+    <div class="m-2 text-gray-400">
+      <%= f.text_area :answer, size: "100x5", class: "" %>
+    </div>
+
+    <div class="m-2 text-blue-600">
+    <%= f.text_area :original, size: "100x5", class: "" %>
+    </div>
+  
+    <!-- 変更を保存するボタンの右寄せ -->
+    <div class="flex justify-end m-8">
+      <%= f.submit "変更を保存する", class: "bg-blue-600 hover:bg-blue-700 text-white py-2 px-4 rounded" %>
+    </div>
+  
+  </div>
+<% end %>

@@ -1,0 +1,90 @@
+<!--<h4 class="text-2xl"><%= @user.name %></h4>-->
+
+<% if current_user == @user %>
+
+
+<!--左側のカラム-->
+<div class="mt-10">
+<p class="text-gray-500 m-4 fixed bottom-0"><%= @user.name %></p>
+
+<div class="fixed bottom-20">
+  <div class="bg-blue-500 m-1 p-2 rounded">
+    <span class="text-xl text-white font-semibold">🤝スポンサー</span>
+  </div>
+</div>
+
+
+
+
+
+
+
+
+
+<!--<%= link_to "英語日記", zen_path(@user), class: "px-4 py-2 mr-4" %>-->
+<button class="ml-3 mt-3">
+<%= link_to "🏠 ホーム", root_path, class: "px-2 py-1 text-lg font-semibold" %>
+</button><br>
+<button class="ml-3 mt-3">
+<%= link_to "🧠 クイズ", quiz_path, class: "px-2 py-1 text-lg font-semibold" %>
+</button><br>
+
+<p>
+<button id="flashcard-open-button02"
+  class="open-post-modal ml-3 mt-3 rounded text-lg font-semibold px-2 py-1">
+  💳 単語登録
+</button>
+</p>
+
+<span class="inline-flex items-center rounded-md bg-blue-50 ml-3 mt-3 p-3 text-xs font-medium text-blue-700 ring-1 ring-blue-700/10 ring-inset mr-2">クイズ正解数/10</span>
+
+<div class="border-b-2 border-gray-300 w-38 mt-4"></div>
+
+
+<!-- tags -->
+<%= link_to root_path do%>
+  <p class="mt-5 px-2 py-1">🔖</p>
+  <p class="items-center px-2 py-1 text-medium font-medium">
+  全て
+  </p>
+ <% end %>
+
+<!--tagsの文字列を全部入れている-->
+<% tagsArr = [] %>
+<% @microposts.each do |micropost| %>
+ <% tagsArr.push(micropost.tags) %>
+<% end %>
+
+<!--重複したやつを削除した配列にする-->
+<% uniqtags = tagsArr.to_set %>
+
+<% uniqtags.each do |tag| %>
+
+<% if tag.present? %>
+ 
+ <%= link_to tag_path(tags: tag) do%><!--動的linkを生成するときに、routerで定義した:tagsを渡してあげる必要がある。paramsはcontrollerのみへの受け渡しなので使われない。https://railsdoc.com/page/link_to-->
+ 
+ <% if params[:tags] == tag %> 
+  <p class="tag items-center px-2 py-1 text-medium font-medium text-white">
+  # <%= tag %>
+  </p>
+ <% else %>
+  <p class="tag items-center px-2 py-1 text-medium font-medium text-gray-600">
+  # <%= tag %>
+  </p>
+<% end %>
+
+<% end %>
+
+<% end %>
+
+<% end %>
+<!-- tags -->
+
+</div>
+
+
+
+
+<% end %>
+

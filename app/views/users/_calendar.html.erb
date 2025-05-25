@@ -1,0 +1,40 @@
+<!--<span>🗓️ <%= @today.strftime("%m/%d") %></span>-->
+
+<!--
+
+<div class="grid grid-cols-7 gap-0 text-center border border-gray-300 rounded-md">
+  <!-- 曜日部分 -->
+  <div class="py-2 bg-gray-100 text-gray-500 font-bold border-r">Sun</div>
+  <div class="py-2 bg-gray-100 text-gray-500 font-bold border-r">Mon</div>
+  <div class="py-2 bg-gray-100 text-gray-500 font-bold border-r">Tue</div>
+  <div class="py-2 bg-gray-100 text-gray-500 font-bold border-r">Wed</div>
+  <div class="py-2 bg-gray-100 text-gray-500 font-bold border-r">Thu</div>
+  <div class="py-2 bg-gray-100 text-gray-500 font-bold border-r">Fri</div>
+  <div class="py-2 bg-gray-100 text-gray-500 font-bold">Sat</div>
+
+  <!-- 日付部分 -->
+  <% @calendar_days.each_slice(7) do |week| %>
+    <% week.each do |date| %>
+      <div class="h-12 border-r border-b flex items-center justify-center">
+        <% if @posted_dates.include?(date.day) %>
+          <div class="font-bold">
+          ✅  <%= date.day %>
+          </div>
+        <% elsif date == Date.today %>
+          <div class="bg-green-100 text-gray-800 font-semibold rounded">
+            <%= date.day %>
+          </div>
+        <% else %>
+          <div class="text-gray-600">
+            <%= date.day %>
+          </div>
+        <% end %>
+      </div>
+    <% end %>
+    <% if week.size < 7 %>
+      <% (7 - week.size).times do %>
+        <div class="h-12 border-r"></div>
+      <% end %>
+    <% end %>
+  <% end %>
+</div>

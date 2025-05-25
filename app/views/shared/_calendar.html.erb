@@ -1,0 +1,35 @@
+<style>
+.border {
+  border: 1px solid #ddd;
+  height: 100px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #f9f9f9;
+}
+
+.col {
+  padding: 10px;
+}
+</style>
+<div class="container">
+  <div class="row text-center font-weight-bold">
+    <div class="col">Sun</div>
+    <div class="col">Mon</div>
+    <div class="col">Tue</div>
+    <div class="col">Wed</div>
+    <div class="col">Thu</div>
+    <div class="col">Fri</div>
+    <div class="col">Sat</div>
+  </div>
+
+  <% calendar_days.each_slice(7) do |week| %>
+    <div class="row">
+      <% week.each do |date| %>
+        <div class="col border text-center" style="height: 100px;">
+          <%= date.day %>
+        </div>
+      <% end %>
+    </div>
+  <% end %>
+</div>

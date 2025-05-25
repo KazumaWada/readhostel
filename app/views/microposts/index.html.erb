@@ -1,0 +1,65 @@
+<!-- Add specific styles for headers -->
+<style>
+  .ql-editor h1 {
+    font-size: 2em;
+    font-weight: bold;
+  }
+  .ql-editor h2 {
+    font-size: 1.5em;
+    font-weight: bold;
+  }
+  .ql-editor h3 {
+    font-size: 1.17em;
+    font-weight: bold;
+  }
+  .ql-editor a{
+    color: #3b82f6; /* Tailwind's blue-500 */
+  }
+
+  .ql-editor blockquote {
+    border-left: 4px solid #e2e8f0; /* Tailwindのgray-200 */
+    padding-left: 1rem;
+    color: #4a5568; /* Tailwindのgray-700 */
+    font-style: italic;
+    margin: 0;
+  }
+  
+  .ql-editor {
+    padding: 0;  /* Remove default padding */
+    margin: 0;
+  }
+</style>
+
+<% @microposts.published.each do |micropost| %>   
+<div class="border shadow-sm hover:shadow-md transition-shadow duration-200 p-4 bg-white">
+  <!-- ユーザー名と日付 -->
+  <div class="flex items-center text-gray-800 mb-2">
+    <span class="font-semibold"><%= micropost.user.name %></span>
+    <span class="text-gray-500 text-sm ml-2"><%= micropost.created_at.strftime("%Y/%m/%d") %></span>
+  </div>
+  
+  <!-- コンテンツ -->
+  <div class="ql-editor text-gray-700">
+    <%= sanitize micropost.content, 
+      tags: %w(
+        p br h1 h2 h3 h4 h5 h6 
+        ul ol li 
+        strong em u s 
+        blockquote pre code 
+        span div img
+        a
+      ),
+      attributes: %w(
+        class style src alt href
+        data-* 
+      ) 
+    %>
+  </div>
+</div>
+
+ 
+
+</div>
+<% end %>
+
+

@@ -1,0 +1,27 @@
+<% flash.each do |message_type, message| %>
+    <%# message_type は :notice, :alert, :success, :error 等が入る可能性があります %>
+  
+    <% css_classes = case message_type.to_sym
+      when :notice
+        # 例えば notice は緑
+        "mb-4 p-4 border-l-4 border-green-500 bg-green-50 text-green-700"
+      when :alert
+        # 例えば alert は赤
+        "mb-4 p-4 border-l-4 border-red-500 bg-red-50 text-red-700"
+      when :error
+        # error として別途分けたい場合
+        "mb-4 p-4 border-l-4 border-red-500 bg-red-50 text-red-700"
+      when :success
+        # success として分けたい場合
+        "mb-4 p-4 border-l-4 border-blue-500 bg-blue-50 text-blue-700"
+      else
+        # 上記以外は青系にでもしておく
+        "mb-4 p-4 border-l-4 border-blue-500 bg-blue-50 text-blue-700"
+      end
+    %>
+  
+    <div class="<%= css_classes %>">
+      <%= raw message %>
+    </div>
+    <!--rawにしたのは、micropost_controllerのgenerate_dynamic_ogアクションのため-->
+  <% end %>

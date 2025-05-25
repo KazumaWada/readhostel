@@ -1,0 +1,12 @@
+version: '3.8'
+
+services:
+  web:
+    build: .
+    command: sh -c "service cron start && bin/rails db:migrate && rails server -b 0.0.0.0 -p 3003"
+    volumes:
+      - .:/app
+    ports:
+      - "3003:3003"
+    environment:
+      - RAILS_ENV=development

@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>eigopencil</title>
+
+  <!-- CSRF & CSP -->
+  <%= csrf_meta_tags %>
+  <%= csp_meta_tag %>
+
+  <!-- Favicon -->
+  <%= favicon_link_tag "favicon.ico" %>
+
+  <!-- TailwindCSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;800&display=swap" rel="stylesheet">
+</head>
+<body class="bg-gray-50 text-gray-800 font-sans leading-relaxed">
+
+  <div class="container mx-auto px-4 max-w-7xl">
+
+    <!-- Hero Section -->
+    <div class="text-center py-16 bg-gradient-to-b from-blue-50 to-white">
+      <h1 class="text-5xl md:text-6xl font-bold text-gray-800 mb-6">
+        英語学習サイト<br>
+        <span class="text-blue-600">eigopencil</span>へようこそ! 🎉
+      </h1>
+      <p class="text-lg md:text-xl text-gray-700 max-w-2xl mx-auto">
+        ✏️ 英語ライティングを楽しみながらスキルアップ！日記やブログ、フレーズを自分のペースで書いていきましょう。
+      </p>
+      
+      <div class="mt-8">
+        <a href="/signup" class="inline-block bg-blue-600 text-white font-semibold text-lg py-3 px-8 rounded-lg shadow-lg hover:bg-blue-700 transition">
+          無料で始める
+        </a>
+      </div>
+      
+      <div class="mt-10">
+      <!--<%= image_tag("welcome/welcome.png", class: "w-full h-auto rounded-lg shadow-lg") %>-->
+      </div>
+
+    <!-- Features Section -->
+<div id="features" class="py-16 bg-gray-100">
+  <div class="text-center mb-12">
+    <h2 class="text-3xl md:text-4xl font-bold text-gray-800">eigopencilの特徴</h2>
+    <p class="text-lg text-gray-600 mt-4">書くことに集中できるシンプルで使いやすいデザインをお届けします。</p>
+  </div>
+
+  <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+    <!-- Card 1 -->
+    <div class="bg-white p-6 rounded-lg shadow-md text-center">
+      <%= image_tag("welcome/home.png", class: "mx-auto max-w-[240px] h-auto rounded-lg shadow-sm") %>
+      <h3 class="text-xl font-bold text-gray-800 mt-4">ホーム画面</h3>
+      <p class="text-gray-600 mt-2">みんなの投稿を確認できます。</p>
+    </div>
+
+    <!-- Card 2 -->
+    <div class="bg-white p-6 rounded-lg shadow-md text-center">
+      <%= image_tag("welcome/user.png", class: "mx-auto max-w-[240px] h-auto rounded-lg shadow-sm") %>
+      <h3 class="text-xl font-bold text-gray-800 mt-4">プロフィール画面</h3>
+      <p class="text-gray-600 mt-2">自分の成長を確認し、X(旧Twitter)にも共有してみましょう</p>
+    </div>
+
+    <!-- Card 3 -->
+    <div class="bg-white p-6 rounded-lg shadow-md text-center">
+      <%= image_tag("welcome/post.png", class: "mx-auto max-w-[240px] h-auto rounded-lg shadow-sm") %>
+      <h3 class="text-xl font-bold text-gray-800 mt-4">投稿画面</h3>
+      <p class="text-gray-600 mt-2">シンプルで使いやすい入力フォームで、1000文字までの投稿が可能です。</p>
+    </div>
+  </div>
+</div>
+
+<!-- Benefits Section -->
+<div id="benefits" class="py-16 bg-white">
+  <div class="text-center mb-12">
+    <h2 class="text-3xl md:text-4xl font-bold text-gray-800">英語を書くことで得られるメリット</h2>
+    <p class="text-lg text-gray-600 mt-4">英語ライティングを通じて、あなたの未来を切り拓きましょう。</p>
+  </div>
+
+  <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+    <!-- Benefit 1 -->
+    <div class="bg-blue-50 p-6 rounded-lg shadow-md text-center">
+      <h3 class="text-xl font-bold text-blue-600">グローバルな視野を広げる</h3>
+      <p class="text-gray-600 mt-2">英語を使うことで、世界中の人々とつながる機会が増えます。</p>
+    </div>
+
+    <!-- Benefit 2 -->
+    <div class="bg-blue-50 p-6 rounded-lg shadow-md text-center">
+      <h3 class="text-xl font-bold text-blue-600">キャリアアップに直結</h3>
+      <p class="text-gray-600 mt-2">英語スキルは、どの業界でも求められる重要なスキルです。</p>
+    </div>
+
+    <!-- Benefit 3 -->
+    <div class="bg-blue-50 p-6 rounded-lg shadow-md text-center">
+      <h3 class="text-xl font-bold text-blue-600">思考力と表現力を向上</h3>
+      <p class="text-gray-600 mt-2">文章を書くことで、論理的思考と豊かな表現力を養えます。</p>
+    </div>
+  </div>
+</div>
+
+    <!-- CTA Section -->
+    <div class="py-16 bg-blue-600 text-white text-center">
+      <h2 class="text-3xl md:text-4xl font-bold">今すぐ始めよう！</h2>
+      <p class="text-lg mt-4">英語ライティングの旅を、eigopencilで始めませんか？</p>
+      <div class="mt-8">
+      <a href="<%= signup_path %>" class="inline-block bg-white text-blue-600 font-semibold text-lg py-3 px-8 rounded-lg shadow-lg hover:bg-gray-100 transition">
+      無料で始める
+    </a>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- Footer -->
+  <footer class="py-8 bg-gray-800 text-gray-400 text-center">
+    <p>&copy; 2025 eigopencil. All rights reserved.</p>
+  </footer>
+
+</body>
+</html>

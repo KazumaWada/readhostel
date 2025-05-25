@@ -1,0 +1,96 @@
+<% if current_user == @user %>
+<div class="flex justify-start mb-4 pl-4">
+  <%= link_to "終了する", done_quiz_path, class: "bg-gray-100 text-gray-800 rounded hover:bg-gray-200 transition duration-300 px-4 py-2 mr-4" %>
+</div>
+<% end %>
+
+<div id="container" data-controller="quiz">
+
+<% @microposts.sample(1).each do |micropost| %>
+
+  <div id="flashcardContainer" class="flashcardContainer m-4 p-3 border-2 border-gray-200 rounded-2xl duration-200">
+ 
+  <!-- 覚えたいフレーズ -->
+  <div id="content" class="m-2 p-3 border-2 border-gray-200 rounded-2xl duration-200">
+    <h1>
+    <%= sanitize micropost.content, 
+    tags: %w(p br h1 h2 h3 h4 h5 h6 ul ol li strong em u s blockquote pre code span div img a),
+    attributes: %w(class style src alt href data-*),
+    class: "text-xl text-gray-700 font-medium"
+  %>
+    </h1>
+
+      <div class="text-right">
+      <span class="correct_num inline-flex items-center rounded-md bg-blue-50 px-2 py-1 text-xs font-medium text-blue-700 ring-1 ring-blue-700/10 ring-inset"> <%= micropost.correct_num %>/10</span>
+      </div>
+   </div>
+
+   <div id="openAnswerAndJudge" class="text-center">
+       <button class="open bg-gray-100 text-gray-800 rounded hover:bg-gray-200 transition duration-300 px-4 py-2 mr-4">👀</button>
+   </div>
+
+<div id="answerAndJudge">
+
+ <div class="answer m-2 p-3 border-2 border-gray-200 rounded-2xl duration-200">
+ <%= sanitize micropost.answer, 
+ tags: %w(p br h1 h2 h3 h4 h5 h6 ul ol li strong em u s blockquote pre code span div img a),
+ attributes: %w(class style src alt href data-*),
+ class: "text-xl text-gray-700 font-medium"
+%>
+ </div>
+
+ <!-- hidden_field -->
+ <!--@micropostが定義できるように、post.idを定義してformに貸与してあげる必要がある。 -->
+ <%= form_with url: quiz_correct_num_update_path(id: micropost.id), method: :patch, id: "hiddenForm", local: true, hidden: true do |form| %>
+  <%= form.hidden_field :correct_num, value: micropost.correct_num + 1 %> 
+
+ <div class="judge text-center">
+   <%= link_to "💀", quiz_path, id: "correct", class: "bg-gray-100 text-gray-800 rounded hover:bg-gray-200 transition duration-300 px-4 py-2 mr-4" %>
+   <%= form.submit "✅", id: "correct", class: "bg-gray-100 text-gray-800 rounded hover:bg-gray-200 transition duration-300 px-4 py-2 mr-4" %>
+ </div>
+
+<% end %>
+
+</div>
+
+</div><!--flashcardContainer-->
+
+
+
+<% end %>
+
+
+
+
+
+
+
+
+
+<script>
+const open = document.getElementById("openAnswerAndJudge");
+const answerAndJudge = document.getElementById("answerAndJudge");
+const correct = document.getElementById("correct");
+const hiddenForm = document.getElementById("hiddenForm");
+
+
+answerAndJudge.hidden = true;
+
+open.addEventListener('click', () =>{
+ answerAndJudge.hidden = false;
+})
+
+correct.addEventListener('click', () =>{
+  //event.preventDefault(); // リンクのデフォルトの動作をキャンセル
+  // フォームのデータを送信
+  hiddenForm.submit();
+})
+
+</script>
+
+
+<style>
+.logo-sample{
+  !color: black;
+}
+</stle>

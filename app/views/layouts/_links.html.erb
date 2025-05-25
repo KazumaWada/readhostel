@@ -1,0 +1,20 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+<div class="container-fluid">
+  <div class="d-flex gap-3">
+
+<% if logged_in? %>
+   [ <button class="myButton"><%= link_to "✍️", root_path %></button>,
+<% else %>
+[<button class="myButton"><%= link_to "✍️", login_path, data: {turbo: false} %></button>,
+<% end %>
+
+    <%= link_to "Blog", "https://kazfluent.com", target: "_blank", rel: "noopener" %>,
+    <%= link_to "アプリ", current_user %> ]
+
+
+    [<button class="myButton"><%= link_to "✍️", login_path, data: {turbo: false} %></button>,
+<% end %>
+
+    <%= link_to "みんな", microposts_path %>,
+    <%= link_to "Blog", "https://kazfluent.com", target: "_blank", rel: "noopener" %>,
+    <%= link_to "アプリ", current_user %> ]

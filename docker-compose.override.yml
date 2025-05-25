@@ -1,0 +1,9 @@
+#ローカル
+version: '3'
+services:
+  web:
+    environment:
+      DATABASE_HOST: db
+      DATABASE_USER: myuser
+      DATABASE_PASSWORD: mypassword
+      DATABASE_NAME: myapp_development

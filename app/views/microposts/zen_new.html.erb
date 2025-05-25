@@ -1,0 +1,110 @@
+<%= link_to '←', :back, class:"font-bold text-2xl" %>
+<%= link_to '下書き', draft_path(@user), class:"font-bold text-2xl" %>
+<div class="text-center">この2つを使ってみよう！</div>
+<!--card only content-->
+<% @microposts.published.sample(2).each do |micropost| %>
+   <!-- 一番外側 -->
+  <div class="m-4 p-3 border-2 border-gray-200 rounded-2xl duration-200">
+  <!--<%= link_to post_path(id: micropost.id) do %> -->
+
+  <!-- コンテンツ部分 -->
+  <div class="flex m-2">
+  <!-- 日付 -->
+  <span class="text-gray-500 text-sm block pr-2">
+  <%= micropost.created_at.strftime("%Y-%m-%d") %>
+  </span>
+  <!-- 正解数 -->
+  <% if micropost.correct_num < 10 %>
+    <span class="inline-flex items-center rounded-md bg-blue-50 px-2 py-1 text-xs font-medium text-blue-700 ring-1 ring-blue-700/10 ring-inset"> 
+    <%= micropost.correct_num %>/10
+    </span>
+  <% else %>
+     ✅
+  <% end %>
+    <!-- タグ defaultで入力されなくてもなんらかしらの形で存在してしまっているから変な無地のボタンが残るんだと思う。defaulでnullとかにしてみる。-->
+    <% if micropost.tags.present? %>
+     <span class="rounded-md bg-gray-50 px-2 py-1 text-xs font-medium text-gray-600 ring-1 ring-gray-500/10 ring-inset">
+     <%= micropost.tags %>
+     </span>
+    <% end %>
+  </div>
+
+  <!--content-->
+      <div class="m-2">
+        <%= sanitize micropost.content, 
+        tags: %w(p br h1 h2 h3 h4 h5 h6 ul ol li strong em u s blockquote pre code span div img a),
+        attributes: %w(class style src alt href data-*),
+        class: "text-xl text-gray-700 font-medium"
+        %>
+      </div>
+      
+      <div class="border-2 border-dashed"></div>
+
+  <!--answer-->
+      <div class="m-2 text-gray-400">
+        <%= sanitize micropost.answer, 
+          tags: %w(p br h1 h2 h3 h4 h5 h6 ul ol li strong em u s blockquote pre code span div img a),
+          attributes: %w(class style src alt href data-*)
+        %>
+      </div>
+
+  <!--<% end %><!--link-->
+  </div><!--コンテンツ外側-->
+ <% end %><!--loop-->
+<!--card only content-->
+
+<div id="post" class="mt-5 m-2" data-controller="quill"> 
+  <%= form_with(model: @micropost, url: zen_create_path(slug: @user.slug), method: :post, local: true, data: { turbo: false } ) do |f| %>
+   
+   <!-- <p class="bg-yellow-100 text-yellow-800 p-4 rounded-lg text-sm max-w-prose">
+    ⚠️ べータ版: 最大1000文字までです。
+   </p>-->
+
+
+    <!-- Quill editor container -->
+    <div data-quill-target="editor" class="min-h-[500px] h-auto"></div>
+
+    <!-- Hidden input to store Quill content -->
+    <%= f.hidden_field :content, data: { quill_target: "input" } %>
+    
+    <!--単語カード用-->
+    <%#<%= render 'flash_card_input' %>
+    
+
+    <!-- Actions -->
+    <div class="actions text-right mt-2">
+
+
+  <% unless current_page?(camera_path) %>
+    <button class="hover:bg-blue-700 px-4 py-2 bg-blue-600 border border-gray-300 text-white 
+                 focus:outline-none focus:ring-2 focus:ring-offset-2 
+                 focus:ring-gray-300 rounded-md <%= 'disable' if @user.name == 'test_user' %>"">
+      <%= link_to "手書き読み取り", camera_path(@user), class: "submit-button text-dark text-decoration-none" %>
+    </button>
+  <% end %>
+
+  <%= f.submit "下書きへ保存",  
+      id: "draft_submit_button", 
+      name: "draft", 
+      class: "hover:bg-blue-700 px-4 py-2 bg-blue-600 border border-gray-300 text-white 
+             focus:outline-none focus:ring-2 focus:ring-offset-2 
+             focus:ring-gray-400 rounded-md" %>
+
+  <%= f.submit "投稿", 
+      id: "submit_button", 
+      class: "hover:bg-blue-700 px-4 py-2 bg-blue-600 border border-gray-300 text-white 
+             focus:outline-none focus:ring-2 focus:ring-offset-2 
+             focus:ring-gray-400 rounded-md" %>
+    </div>
+  <% end %>
+
+
+</div>
+
+
+
+
+<!-- Add Quill CSS and JS -->
+<link href="https://cdn.jsdelivr.net/npm/quill@1.3.7/dist/quill.snow.css" rel="stylesheet">
+<script src="https://cdn.quilljs.com/2.0.3/quill.js"></script>    
+

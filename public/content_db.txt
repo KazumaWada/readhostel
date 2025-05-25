@@ -1,0 +1,132 @@
+kazuma
+2025/01/23
+if you wanna fine-tune your large language model and run it locally on your machine, use Ollama. In todays video we gonna do exactly that.
+https://www.youtube.com/watch?v=pxhkDaKzBaY
+fine-tune: 最適化,最適なものを見つける
+kazuma
+2025/01/23
+If your WYSIWYG editor image upload feature turns out to be an involved process, that's a problem.
+the process was more involved than we expected.
+involve: 「関与する」の他に、「複雑な、手間のかかる」という意味でも使われる。
+https://www.tiny.cloud/blog/wysiwyg-image-upload/
+test_user
+2025/01/20
+hello, world! yay!
+kazuma
+2025/01/18
+I always put myself in bad positions all the time you know you put in yourself bad position but you put yourself in there anyways. oh its holidays ok ill eat a cinnamon ban, ice cream, strawberry　cake. i dont know how human mind works. why do i have to celebrate with like something toxic its horrible.
+https://www.youtube.com/watch?v=bz79rda7X9I
+kazuma
+2025/01/18
+everything he says seems compelling because he's jacked.
+kazuma
+2025/01/18
+Building something interesting requires a surplus of time and money. Salaried jobs provide neither. Unless the job itself is your dream, stay the fuck away from them.
+A surplus of time and money gives you the chance to make something creative.
+surplus of time and money:(extra, more than enough time and money)
+he has a surplus of time and money, so he spend his days traveling.
+kazuma
+2025/01/18
+Chiang Mai's food generally contains less meat. After living here for a month, I ordered KFC through Grab. As I ate it, I could feel my body being blessed by the meat. Now, I'm addicted.
+kazuma
+2025/01/18
+"My ridiculous intake of over six cups of coffee daily definitely pushed me over the edge, but it was only the catalyst, not the cause.
+https://levels.io/reset-your-life/
+pushed me over the edge: "The phrase "pushed me over the edge" typically means that something caused a person to reach their breaking point emotionally, mentally, or in terms of patience. It suggests that the person was already close to their limit, and the event or action pushed them beyond their capacity to cope or remain composed."
+自作英文:
+"coding 8h straight literally pushed me over the edge.
+
+
+2025-01-23 10:08:38 +0000: <p>kkkkk</p>
+2025-01-23 10:09:22 +0000: <p>test </p>
+2025-02-12 09:05:14 +0000: <p>hello</p>
+2025-02-12 09:08:07 +0000: <p>helloooooo</p>
+2025-02-12 09:09:33 +0000: <p>hello</p>
+2025-02-12 09:22:05 +0000: <p>heyyyy</p>
+2025-03-06 14:42:16 +0000: <p>testtt</p>
+2025-03-07 09:49:21 +0000: hello,world
+2025-03-07 09:52:12 +0000: helooooo!
+2025-03-07 10:06:53 +0000: dddddddddkkmkmkmkmkmkmkmkmkmkmmkmkmkmkmkmkmkdddddddddkkmkmkmkmkmkmkmkmkmkmmkmkmkmkmkmkmkdddddddddkkmkmkmkmkmkmkmkmkmkmmkmkmkmkmkmkmkdddddddddkkmkmkmkmkmkmkmkmkmkmmkmkmkmkmkmkmkdddddddddkkmkmkmkmkmkmkmkmkmkmmkmkmkmkmkmkmkdddddddddkkmkmkmkmkmkmkmkmkmkmmkmkmkmkmkmkmkdddddddddkkmkmkmkmkmkmkmkmkmkmmkmkmkmkmkmkmkdddddddddkkmkmkmkmkmkmkmkmkmkmmkmkmkmkmkmkmkdddddddddkkmkmkmkmkmkmkmkmkmkmmkmkmkmkmkmkmkdddddddddkkmkmkmkmkmkmkmkmkmkmmkmkmkmkmkmkmkdddddddddkkmkmkmkmkmkmkmkmkmkmmkmkmkmkmkmkmk
+2025-03-13 15:52:42 +0000: helloppp
+2025-03-13 16:13:35 +0000: jjjj
+2025-03-13 16:13:42 +0000: jjj
+2025-03-13 16:46:57 +0000: っっっっd
+2025-03-13 16:47:22 +0000: っっd
+2025-03-14 01:34:54 +0000: hello
+2025-03-15 08:26:18 +0000: jey
+2025-03-15 08:28:09 +0000: hh
+2025-03-15 09:23:09 +0000: hello
+2025-03-15 09:23:19 +0000: hello
+2025-03-15 10:41:57 +0000: ggg
+2025-03-19 12:47:53 +0000: hello
+2025-03-19 12:48:40 +0000: hello, world!
+2025-03-19 14:26:04 +0000: goodbye
+2025-03-19 14:26:24 +0000: perfect!
+2025-03-19 14:26:38 +0000: worth it
+2025-03-21 09:20:22 +0000: hello
+2025-03-21 09:20:44 +0000: hello, world!!
+2025-03-21 10:23:48 +0000: hello
+2025-03-21 14:50:05 +0000: hello
+2025-03-22 14:28:11 +0000: orem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
+2025-03-22 14:53:05 +0000: test
+2025-03-22 14:55:29 +0000: hello
+2025-03-22 14:57:54 +0000: hello
+2025-03-22 15:00:07 +0000: hello
+2025-03-22 16:04:17 +0000: honey
+2025-03-22 16:24:26 +0000: hello
+2025-03-22 16:24:49 +0000: a
+2025-03-22 16:25:08 +0000: a
+2025-03-22 16:25:14 +0000: a
+2025-03-22 16:25:58 +0000: a
+2025-03-22 16:30:06 +0000: g
+2025-03-22 16:30:16 +0000: f
+2025-03-24 15:25:47 +0000: a
+2025-03-24 15:50:18 +0000: っ
+2025-03-24 16:02:01 +0000: test
+2025-04-01 06:23:24 +0000: Struggle is real, pushing forward tho pushing forward
+2025-04-01 06:25:02 +0000: my spots closed.
+2025-04-01 06:34:51 +0000: its such a curveball
+2025-04-01 06:38:57 +0000: sounds like a plan
+2025-04-03 12:02:12 +0000: I’ve often been labeled as a creative person myself.
+2025-04-07 13:44:25 +0000: hello, world!
+2025-04-07 13:47:37 +0000: h
+2025-04-07 13:51:39 +0000: hello, world!
+2025-04-07 13:53:49 +0000: こんにちは、世界！
+2025-04-07 13:54:13 +0000: hello, world!
+2025-04-07 14:08:45 +0000: What's up?
+2025-04-07 14:09:11 +0000: Take it easy
+2025-04-07 14:09:34 +0000: No problem.
+2025-04-07 14:09:54 +0000: I see.
+2025-04-07 14:10:16 +0000: It’s up to you.
+2025-04-08 01:22:51 +0000: tendency
+2025-04-08 01:34:30 +0000: intimidating
+2025-04-08 23:48:41 +0000: Desperately
+2025-04-09 12:46:12 +0000: genuinely
+2025-04-10 08:53:08 +0000: i know just as much as you think that you know
+2025-04-12 06:53:21 +0000: must be around that
+2025-04-12 11:45:14 +0000: Hold on, let's put it into perspective.
+2025-04-12 11:51:47 +0000: at the expense of
+2025-05-01 13:18:24 +0000: hello, world!
+2025-05-01 13:19:24 +0000: a
+2025-05-01 13:21:45 +0000: a
+2025-05-01 13:29:56 +0000: a
+2025-05-01 13:30:01 +0000: a
+2025-05-01 13:32:14 +0000: a
+2025-05-01 13:32:31 +0000: a
+2025-05-01 13:45:08 +0000: あ
+2025-05-01 13:45:16 +0000: あ
+2025-05-01 13:47:36 +0000: a
+2025-05-02 13:35:03 +0000: hey
+2025-05-02 14:01:26 +0000: hello
+2025-05-03 09:21:39 +0000: a
+2025-05-03 09:26:54 +0000: yo
+2025-05-03 09:27:00 +0000: yo
+2025-05-03 10:32:28 +0000: s
+2025-05-04 07:35:05 +0000: v
+2025-05-04 07:36:20 +0000: s
+2025-05-04 16:25:54 +0000: mildly interesting to talk about
+2025-05-05 14:31:56 +0000: r
+2025-05-05 14:32:07 +0000: r
+2025-05-05 14:40:03 +0000: d
+2025-05-19 13:55:00 +0000: h
+2025-05-25 02:49:53 +0000: Hello, world!
