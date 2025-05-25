@@ -4,211 +4,26 @@
   <!-- Importmap -->
   <%= javascript_importmap_tags %>
   <%= javascript_include_tag "application", "data-turbo-track": "reload", defer: true %>
-  <!-- Stylesheets -->
 
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
 
-    <title>85pencil</title>
+    <title>readhostel</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
     <!-- Favicon -->
-    <%= favicon_link_tag '/favicon.ico' %>
+    <%= favicon_link_tag '/favicon.ico' %>  
 
-   <!-- Twitter Cards Meta Tags -->
-   <%= display_meta_tags(set_default_meta_tags) %>
- 
-  
   <!-- TailwindCSS -->
   <script src="https://cdn.tailwindcss.com"></script>
-
-  <!--Alpine.js nav用(https://alpinejs.dev/start-here#building-a-dropdown)-->
-  <!--<script src="//unpkg.com/alpinejs" defer></script>-->
-
- 
-
-
-
-<!--google font -->
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Gabarito:wght@400..900&family=Lexend:wght@100..900&family=Noto+Sans:ital,wght@0,100..900;1,100..900&family=Nunito:ital,wght@0,200..1000;1,200..1000&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
   
 </head>
 
-<style>
-      * {
-        margin: 0;
-        padding: 0;
-        box-sizing: border-box;
-      }
-.nunito-<uniquifier> {
-  font-family: "Nunito", serif;
-  font-optical-sizing: auto;
-  font-weight: <weight>;
-  font-style: normal;
-}
-
-      .links ul {
-        list-style-type: none; /* 点を消す */
-        padding: 0; /* 左側の余白を削除 */
-        margin: 0; /* 外側の余白を削除（必要に応じて） */
-      }
-      .diary-container {
-        max-width: 600px;
-        width: 100%;
-        border-radius: 8px;
-        padding: 20px;
-        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-      }
-      .diary-input {
-        margin-bottom: 20px;
-      }
-      .diary-entries {
-        margin-top: 20px;
-      }
-
-.floating-circle-upper {
-  position: fixed;
-  bottom: 90px; /* 画面の下から20pxの位置 */
-  left: 30px; /* 画面の左から20pxの位置 */
-  width: 40px;
-  height: 40px;
-  background-color: white;
-  color: white;
-  border-radius: 50%; /* 丸くする */
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* 軽いシャドウ効果 */
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 24px;
-  cursor: pointer;
-  z-index: 1000; /* 他の要素の上に表示 */
-  transition: background-color 0.3s ease;
-}
-.floating-circle-buttom {
-  position: fixed;
-  bottom: 20px; /* 画面の下から20pxの位置 */
-  left: 20px; /* 画面の左から20pxの位置 */
-  width: 60px;
-  height: 60px;
-  background-color: #2563eb;
-  color: white;
-  border-radius: 50%; /* 丸くする */
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* 軽いシャドウ効果 */
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 24px;
-  cursor: pointer;
-  z-index: 1000; /* 他の要素の上に表示 */
-  transition: background-color 0.3s ease;
-}
-.floating-circle:hover {
-  background-color: #e2a234; /* ホバー時の色 */
-}
-.no-underline {
-    text-decoration: none; /* 下線を無効化 */
-  }
-
-  .no-underline:hover {
-    text-decoration: none; /* ホバー時も下線を無効化 */
-  }
-button:focus {
-    outline: none;
-  }
-
-#tailwind CSS (https://tailwindcss.com/docs/guides/ruby-on-rails)
-</style>
 
 <body>
-
-
-<%= render 'layouts/header_beta' %>
-<%= render 'layouts/flash_message' %>
 <%= yield %>
-<%# <%= render 'layouts/bottom_btns' %> 
-
-
-
-  <div class="mt-12" style="height: 50px;"></div>
-
-
-
-
-
-<!---投稿フォーム--->
-<% if controller.controller_name == "users" && action_name == "show" && current_user.present? && @user.present? && current_user == @user %>
-
-<div id="post-modal" class="fixed inset-0 hidden z-50 bg-black bg-opacity-50 flex items-center justify-center">
-  <!--<div class="bg-white rounded-lg shadow-lg w-11/12 max-w-6xl p-6">-->
-  <div class="bg-white rounded-lg shadow-lg w-full sm:w-11/12 max-w-full sm:max-w-6xl p-2 sm:p-6">
-  <div class="flashcardContainer m-4 p-3 border-2 border-gray-200 rounded-2xl duration-200">
-  <%= form_with(model: @microposts, url: zen_create_path(slug: @user.slug), method: :post, local: true, data: { turbo: false }) do |f| %>
-    <div id="inputWrapper" class="text-gray-500">
-      <label for="content">覚えたい単語、フレーズ</label>
-      <%= f.text_area :content, 
-          class: "m-2 p-3 border-2 border-gray-200 duration-200 rounded-2xl w-full" %>
-
-      <label for="answer">日本語訳/解説など *optional</label>
-      <%= f.text_area :answer, 
-          class: "m-2 p-3 border-2 border-gray-200 duration-200 rounded-2xl w-full" %>
-
-      <label for="answer">自作英文 *後で入力してもok!</label>
-      <%= f.text_area :original, 
-          class: "m-2 p-3 border-2 border-gray-200 duration-200 rounded-2xl w-full" %>
-
-
-    </div>
-
-    <!-- 新しいタグ入力欄と登録ボタンを横並びにするためのグリッド -->
-    <div class="grid grid-cols-2 gap-4 mt-4">
-      <!-- タグ入力欄 -->
-      <div>
-        <label for="tags" class="block text-gray-600">タグ（1つのみ）</label>
-        <%= f.text_field :tags, 
-            class: "m-2 p-3 border-2 border-gray-200 duration-200 rounded-2xl w-full" %>
-      </div>
-
-      <!-- 登録ボタン -->
-      <div class="flex justify-end items-center">
-        <%= f.submit "カードを登録", 
-            class: "bg-gray-100 text-gray-800 rounded hover:bg-gray-200 transition duration-300 px-4 py-2" %>
-      </div>
-    </div>
-  <% end %>
-</div>
-  </div>
-</div>
-<% end %>
-<!---投稿フォーム--->
-
-
 </body>
 </html>
 
-<script>
-//カード登録の表示
-document.addEventListener('DOMContentLoaded', function() {
-  const openBtns = document.querySelectorAll('.open-post-modal');
-  const modal = document.getElementById('post-modal');
-
-  if (modal) {
-    openBtns.forEach(btn => {
-      btn.addEventListener('click', () => {
-        console.log("clicked");
-        modal.classList.remove('hidden');
-      });
-    });
-
-    modal.addEventListener('click', (e) => {
-      if (e.target === modal) {
-        modal.classList.add('hidden');
-      }
-    });
-  }
-});
-
-</script>

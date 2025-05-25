@@ -1,20 +1,35 @@
-<div class="text-center mt-3" id="nav-section">
+<!--<div id="title" class="w-full h-screen flex flex-col sm:flex-row items-center justify-center text-left relative">-->
+<div id="title" class="w-full h-screen flex flex-col sm:flex-row text-left relative">
 
-<% if current_user.nil? %>
-  <p>hey, ゲストさん! 
-    <%= link_to "ログイン", login_path, class: "text-decoration-none text-blue-500" %>
-  </p>
-<% else %>
-  <div class="flex items-center justify-between w-full">
-    <span></span> <!-- Left side empty space -->
-    <span class="text-center flex-grow">
-      hey, <%= current_user.name %>👋
-    </span>
+  <!-- テキスト部分（左側） -->
+  <div class="relative w-full sm:w-1/2 h-full z-50 sm:text-left sm:pl-8">
+    <div class="h-full flex flex-col justify-start">
+      <h1 class="nunitotitle text-4xl sm:text-6xl font-bold">ホステル日記</h1>
+      <p class="text-base sm:text-xl font-bold">オークランド、シドニー、チェンマイ編</p>
+      
+      <div class="mt-2">
+      <p class="text-base text-gray-600">就職したくなかった男が海外へ渡り2年間のホステル暮らし。</p>
+      <p class="text-base text-gray-600">現実から逃げた先にあった、もうひとつの世界。</p>
+      </div>
+      <!-- この absolute 要素は、左半分の右下に固定される -->
+      <p class="absolute bottom-0 right-0 text-sm animate-bounce max-sm:hidden">
+  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
+    <path stroke-linecap="round" stroke-linejoin="round" d="m15 15 6-6m0 0-6-6m6 6H9a6 6 0 0 0 0 12h3" />
+  </svg>
+</p>
+
+
+    </div>
   </div>
-<% end %>
+
+  <!-- 写真部分（右側） -->
+  <div class="w-full sm:w-1/2 h-screen">
+    <%= image_tag "cover.jpg", class: "h-full w-full object-cover" %>
+  </div>
 
 </div>
 
-<div class="mt-5">
-<%= render template: "microposts/index" %>
-</div>
+
+
+
+
