@@ -29,3 +29,4 @@
 //= link lp-main.png
 //= link cover.jpg
 //= link balcony.jpg
+//= link ep.png

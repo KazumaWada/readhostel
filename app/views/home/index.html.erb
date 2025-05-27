@@ -1,35 +1,79 @@
-<!--<div id="title" class="w-full h-screen flex flex-col sm:flex-row items-center justify-center text-left relative">-->
-<div id="title" class="w-full h-screen flex flex-col sm:flex-row text-left relative">
-
+<!-- ===========================
+     ✅ PC表示専用（md以上）
+=========================== -->
+<div id="title-desktop" class="hidden md:flex w-full h-screen flex-row text-left relative">
   <!-- テキスト部分（左側） -->
-  <div class="relative w-full sm:w-1/2 h-full z-50 sm:text-left sm:pl-8">
+  <div class="mt-5 relative w-1/2 h-full z-50 text-left pl-8">
     <div class="h-full flex flex-col justify-start">
-      <h1 class="nunitotitle text-4xl sm:text-6xl font-bold">ホステル日記</h1>
-      <p class="text-base sm:text-xl font-bold">オークランド、シドニー、チェンマイ編</p>
+      <h1 class="nunitotitle text-6xl font-bold">ホステル日記</h1>
+      <p class="text-xl font-bold">オークランド、シドニー、チェンマイ編</p>
       
       <div class="mt-2">
-      <p class="text-base text-gray-600">就職したくなかった男が海外へ渡り2年間のホステル暮らし。</p>
-      <p class="text-base text-gray-600">現実から逃げた先にあった、もうひとつの世界。</p>
+        <p class="text-base text-gray-600">就職したくなかった男が海外へ渡り2年間のホステル暮らし。</p>
+        <p class="text-base text-gray-600">現実から逃げた先にあった、もうひとつの世界。</p>
       </div>
-      <!-- この absolute 要素は、左半分の右下に固定される -->
-      <p class="absolute bottom-0 right-0 text-sm animate-bounce max-sm:hidden">
-  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
-    <path stroke-linecap="round" stroke-linejoin="round" d="m15 15 6-6m0 0-6-6m6 6H9a6 6 0 0 0 0 12h3" />
-  </svg>
-</p>
 
+      <div class="mt-2">
+        <p class="text-gray-400 text-xs">This site is handcrafted by Kazuma Wada</p>
+        <p class="text-gray-400 text-xs">
+          Design inspired by 
+          <span class="text-blue-600">
+            <a href="https://readmake.com">readMAKE.com</a>
+          </span> by Pieter Levels
+        </p>
+        <span class="flex items-center text-gray-400 text-xs space-x-1">
+          Sponsored by
+          <%= image_tag "ep.png", class: "h-[2vh]" %>
+        </span>
+        <p class="text-xl font-semibold">https://readhostel.com</p>
+      </div>
 
+      <!-- 目立つ購入セクション -->
+      <div class="mt-10 mr-10 p-6 bg-blue-100 rounded-md max-w-md">
+        <p class="text-xl font-bold text-gray-800 mb-2">📘 この本を買う</p>
+        <p class="text-gray-700 mb-4">Stripe決済でご購入後、このサイトの内容全てを読むことができます。</p>
+        <a href="/purchase" class="inline-block bg-blue-400 hover:bg-blue-500 text-white font-semibold py-2 px-4 rounded transition duration-300">
+          今すぐ購入する
+        </a>
+      </div>
+
+      <!-- 作品情報 -->
+      <div class="bg-gray-10 mt-10 mr-10 rounded-md">
+        <div class="ml-2 mt-5 mb-5">
+          <p class="text-lg">💁🏻‍♂️著者について</p>
+          <span class="text-gray-600">経歴、本を書くと決めたきっかけなど。</span>
+        </div>
+
+        <div class="ml-2 mt-5 mb-5">
+          <p class="text-lg">🌱ホステル日記の裏側</p>
+          <span class="text-gray-600">ホステル日記を書いている時に考えていたこと、作成過程などを共有します</span>
+        </div>
+      </div>
     </div>
   </div>
 
-  <!-- 写真部分（右側） -->
-  <div class="w-full sm:w-1/2 h-screen">
+  <!-- 画像部分（右側） -->
+  <div class="w-1/2 h-screen">
     <%= image_tag "cover.jpg", class: "h-full w-full object-cover" %>
   </div>
-
 </div>
 
+<!-- ===========================
+     ✅ スマホ表示専用（md未満）
+=========================== -->
+<div id="title-mobile" class="md:hidden relative w-full h-screen">
+  <!-- 背景画像 -->
+  <%= image_tag "cover.jpg", class: "absolute inset-0 w-full h-full object-cover"%>
 
-
-
+  <!-- テキストを中央に表示 -->
+  <div class="absolute inset-0 flex flex-col items-center justify-center text-center pb-10">
+    <h1 class="text-white text-5xl font-bold mb-2">ホステル日記</h1>
+    <p class="text-white text-lg font-semibold mb-4">オークランド、シドニー、チェンマイ編</p>
+    
+    <div class="text-white text-sm">
+      <p>就職したくなかった男が海外へ渡り2年間のホステル暮らし。</p>
+      <p>現実から逃げた先にあった、もうひとつの世界。</p>
+    </div>
+  </div>
+</div>
 
