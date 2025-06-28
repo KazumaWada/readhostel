@@ -3,7 +3,7 @@
 =========================== -->
 <div id="title-desktop" class="hidden md:flex w-full h-screen flex-row text-left relative">
   <!-- テキスト部分（左側） -->
-  <div class="mt-5 relative w-1/2 h-full z-50 text-left pl-8">
+  <div class="relative w-1/2 h-full z-50 text-left p-8">
     <div class="h-full flex flex-col justify-start">
       <h1 class="nunitotitle text-6xl font-bold">ホステル日記</h1>
       <p class="text-xl font-bold">オークランド、シドニー、チェンマイ編</p>
@@ -28,27 +28,20 @@
         <p class="text-xl font-semibold">https://readhostel.com</p>
       </div>
 
-      <!-- 目立つ購入セクション -->
-      <div class="mt-10 mr-10 p-6 bg-blue-100 rounded-md max-w-md">
-        <p class="text-xl font-bold text-gray-800 mb-2">📘 この本を買う</p>
-        <p class="text-gray-700 mb-4">Stripe決済でご購入後、このサイトの内容全てを読むことができます。</p>
-        <a href="/purchase" class="inline-block bg-blue-400 hover:bg-blue-500 text-white font-semibold py-2 px-4 rounded transition duration-300">
-          今すぐ購入する
-        </a>
+      <!-- シグニチャー -->
+      <div class="">
+      <%= image_tag "travel-quote.jpg", class: "mt-10 h-[30vh]" %>
       </div>
 
-      <!-- 作品情報 -->
-      <div class="bg-gray-10 mt-10 mr-10 rounded-md">
-        <div class="ml-2 mt-5 mb-5">
-          <p class="text-lg">💁🏻‍♂️著者について</p>
-          <span class="text-gray-600">経歴、本を書くと決めたきっかけなど。</span>
-        </div>
 
-        <div class="ml-2 mt-5 mb-5">
-          <p class="text-lg">🌱ホステル日記の裏側</p>
-          <span class="text-gray-600">ホステル日記を書いている時に考えていたこと、作成過程などを共有します</span>
-        </div>
+
+      <!-- シグニチャー -->
+      <div class="absolute bottom-8 left-8 text-sm text-gray-500 space-y-1">
+      <%= image_tag "hand.webp", class: "" %>
       </div>
+
+ 
+
     </div>
   </div>
 
@@ -70,10 +63,49 @@
     <h1 class="text-white text-5xl font-bold mb-2">ホステル日記</h1>
     <p class="text-white text-lg font-semibold mb-4">オークランド、シドニー、チェンマイ編</p>
     
-    <div class="text-white text-sm">
+    <div class="text-white text-left text-sm">
       <p>就職したくなかった男が海外へ渡り2年間のホステル暮らし。</p>
       <p>現実から逃げた先にあった、もうひとつの世界。</p>
     </div>
   </div>
+
 </div>
 
+
+
+
+<section id="title-desktop" class="w-full h-screen text-left p-10">
+  <p class="font-semibold text-xl">- - - - - - - - - - </p>
+  <p class="font-semibold text-xl">👷ベータ版🦺</p>
+  <p class="font-semibold text-xl">- - - - - - - - - - </p>
+  <p class="font-semibold text-xl">🗺️ はじめに</p>
+  <div class="text-gray-800 p-5">
+  <p class="mt-1">無料で読めるの？</p>
+  <p class="mt-1">著者について</p>
+  <p class="mt-1">そもそもなぜ海外へ？</p>
+  <p class="mt-1">ワーホリを使って行きました。タイは観光ビザです</p>
+  <p class="mt-1">現地でやったアルバイトとか</p>
+  <p class="mt-1">英語は日本である程度話す訓練をしてから行きました</p>
+  <p class="mt-1">、、、ホステル日記？何それ？</p>
+  <p class="mt-1">なぜわざわざこれを書こうと思ったのか？</p>
+  <p class="mt-1">今後の展望など</p>
+  </div>
+  <p class="font-semibold text-xl">🎥 ホステル日記の執筆中に出てきた思考</p>
+  <div class="text-gray-800 p-5">
+  <p class="mt-2">ホステル日記を自分のメディアでも公開しようと決めたきっかけ02</p>
+  <p class="mt-2">「ホステル日記」を書く理由01</p>
+  <p class="mt-2">ホステル日記、転職と引越しでちょっとお休みしていました。再開しますー</p>
+  <p class="mt-2">ホステル日記を自分のメディアでも公開しようと決めたきっかけ01</p>
+  <p class="mt-2">恥ずかしい、ダサい文章でも書いて進む</p>
+  <p class="mt-2">書き続けるために作った仕組み</p>
+  <p>過去がどうであれ、「自分は書ける人間なんだ」と信じて進んでいる</p>
+  <p>仮のビートから始まるホステル日記</p>
+  <p>完全なオリジナル作品というのは存在しない。 僕が作品作りに影響を受けた4人</p>
+  <p>「ホステル日記」の内容はGitHubで管理していきます</p>
+  <p>本を作っていくプロセスはこんな感じにします</p>
+  </div>
+  <p class="font-bold text-xl">🇳🇿🥝オークランド編</p>
+  <p class="font-semibold text-xl">🇦🇺🦘シドニー編</p>
+  <p class="font-semibold text-xl">🇹🇭🥊チェンマイ編</p>
+  <p class="font-semibold text-xl">🇨🇦☕️番外編(トロント)</p>
+</section>

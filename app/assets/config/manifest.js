@@ -30,3 +30,5 @@
 //= link cover.jpg
 //= link balcony.jpg
 //= link ep.png
+//= link hand.webp
+//= link travel-quote.jpg
